@@ -15,18 +15,6 @@ class NewsAdminForm(forms.ModelForm):
 
 
 class NewsAdmin(admin.ModelAdmin):
-    """ Этот класс создается для редактирования внешнего вида админки
-    list_display - это данные, которые будут показываться в админке
-    list_display_links - это поля, которые будут кликабельные
-    search_fields - это поля, по которым будет производиться поиск
-    list_editable - Изменения статуса опубликованности не заходя в новость
-    list_filter - Фильтр в админке
-    fields - категории, которые будут показываться при редактировании новости
-    readonly_fields - категории, которые нельзя изменить при редактировании,
-    они нужный так же для того, чтобы джанго разрешил показывать там некоторые
-    нередактируемые поля
-    save_on_top -добавляет дополнительные кнопки в редактирование новости в верх
-    """
     form = NewsAdminForm
     list_display = ('id', 'title', 'category', 'created_at', 'update_at', 
     'is_published', 'get_photo')
@@ -46,13 +34,13 @@ class NewsAdmin(admin.ModelAdmin):
     
     get_photo.short_description = 'Фото' # Задаем название полю фото
 
+
 class CategoryAdmin(admin.ModelAdmin):
-    """ Здесь мы прописываем настройки в админку для второй таблицы """
     list_display = ('id', 'title')
     list_display_links = ('id', 'title')
     search_fields = ('title',)
 
-#Здесь мы регистрируем изменения. Сразу регистрируем класс БД, а потом изменения
+
 admin.site.register(News, NewsAdmin)
 admin.site.register(Category, CategoryAdmin)
 
