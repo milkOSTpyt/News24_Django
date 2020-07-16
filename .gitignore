@@ -1,0 +1,7 @@
+media/
+db.sqlite3
+django_cache/
+mysite/__pycache__/
+news/__pycache__/
+news/templatetags/__pycache__/
+news/migrations/

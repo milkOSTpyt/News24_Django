@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock %}
+
+{% block title %}
+Вход
+{% endblock %}
+
+{% block content %}
+<h1>Вход</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background: #007bff; color: #fff; border-color: #007bff;" class="btn btn-ptimary btn-block">Вход</button>
+</form>
+{% endblock %}
